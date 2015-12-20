@@ -1,0 +1,49 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    meta(name='node-env', content=env)
+    title ktabori
+    
+    link(rel='stylesheet', href='/css/core.css')
+    link(href="http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600", rel="stylesheet", type="text/css")
+
+    if env == 'development'
+      script(src='http://localhost:35729/livereload.js')
+    
+  body.boxed-layout.btn-rounded
+  if navigation
+    .nav-container
+      nav
+        .nav-bar
+          .module.left
+            a(href="/") KTABORI
+          .module.widget-handle.mobile-toggle.right.visible-sm.visible-xs
+            i.ti-menu
+          .module-group.right
+            .module.left
+              ul.menu
+                each n in navigation
+                  li
+                    a(href=n.url)= n.title
+
+    .main-container
+      block content
+
+    script(src='/js/core.js')
+    
+    footer.footer-2.bg-dark.text-center-xs
+      .container
+        .row
+          .col-sm-6
+            span.fade-half
+              | &#169; Copyright 2015 KTABORI
+          .col-sm-6.text-right.text-center-xs
+            ul.list-inline.social-list
+              li
+                a(href="https://twitter.com/dmngdco")
+                  i.ti-twitter-alt
+              li
+                a(href="https://www.facebook.com/dmngd")
+                  i.ti-facebook

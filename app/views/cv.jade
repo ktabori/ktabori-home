@@ -1,0 +1,204 @@
+extends layout
+
+-var page = 'CV'
+  
+block content
+  section.image-bg.overlay.pt240.pb240.pt-xs-180.pb-xs-180
+    .background-image-holder
+      img.background-image(alt="image", src="img/header_img.jpg")
+    .container
+      .row
+        .col-sm-5.col-sm-offset-7
+          h1.mb0.uppercase.bold Krisztian Tabori
+          h5.uppercase.mb32 UI/UX Design &#38; Web Development
+  
+  section.bg-secondary
+    .container
+      .row
+        .col-md-4.col-md-offset-1.text-right.text-left-xs.col-sm-5
+          h1.uppercase.mb24.bold.italic
+            | About
+            br
+            | Me
+          hr.visible-xs
+        .col-md-5.col-sm-7
+          for o, i in cv
+            if o.section_name == 'intro 1'
+              p #{o.content}
+          for o, i in cv
+            if o.section_name == 'intro 2'
+              p #{o.content}
+          for o, i in cv
+            if o.section_name == 'intro 3'
+              p #{o.content}
+          for o, i in cv
+            if o.section_name == 'intro 4'
+              p #{o.content}
+          for o, i in cv
+            if o.section_name == 'intro 5'
+              p #{o.content}
+          for o, i in cv
+            if o.section_name == 'intro 6'
+              p #{o.content}
+  
+  section.bg-secondary
+    .container
+      .row
+        .col-md-10.col-md-offset-1.mb40
+          h6.uppercase My Experiences
+          hr.mb-xs-24
+      
+      for o, i in cv
+        if o.section_name == 'xp 3'
+          .row
+            .col-md-10.col-md-offset-1
+              h4.thin.mb0 #{o.organization}
+              h5.thin.mt0 #{o.content} (#{o.years})
+          .row.mb-xs-0
+            .col-md-10.col-md-offset-1
+              ul
+                li #{o.bullet_1}
+                li #{o.bullet_2}
+                li #{o.bullet_3}
+      
+      for o, i in cv
+        if o.section_name == 'xp 2'
+          .row.mt40
+            .col-md-10.col-md-offset-1
+              h4.thin.mb0 #{o.organization}
+              h5.thin.mt0 #{o.content} (#{o.years})
+          .row.mb-xs-0
+            .col-md-10.col-md-offset-1
+              ul
+                li #{o.bullet_1}
+                li #{o.bullet_2}
+                li #{o.bullet_3}
+      
+      for o, i in cv
+        if o.section_name == 'xp 1'
+          .row.mt40
+            .col-md-10.col-md-offset-1
+              h4.thin.mb0 #{o.organization}
+              h5.thin.mt0 #{o.content} (#{o.years})
+          .row.mb-xs-0
+            .col-md-10.col-md-offset-1
+              ul
+                li #{o.bullet_1}
+                li #{o.bullet_2}
+                li #{o.bullet_3}
+
+  section.bg-secondary
+    .container
+      .row
+        .col-md-10.col-md-offset-1.mb40
+          h6.uppercase My Education
+          hr.mb-xs-24
+      
+      for o, i in cv
+        if o.section_name == 'school 5'
+          .row
+            .col-md-10.col-md-offset-1
+              h4.thin.mb0 #{o.organization}
+              h5.thin.mt0 #{o.content} (#{o.years})
+          .row.mb-xs-0
+            .col-md-10.col-md-offset-1
+              ul
+                li #{o.bullet_1}
+                li #{o.bullet_2}
+                li #{o.bullet_3}
+      
+      for o, i in cv
+        if o.section_name == 'school 4'
+          .row.mt40
+            .col-md-10.col-md-offset-1
+              h4.thin.mb0 #{o.organization}
+              h5.thin.mt0 #{o.content} (#{o.years})
+          .row.mb-xs-0
+            .col-md-10.col-md-offset-1
+              ul
+                li #{o.bullet_1}
+                li #{o.bullet_2}
+                li #{o.bullet_3}
+      
+      for o, i in cv
+        if o.section_name == 'school 3'
+          .row.mt40
+            .col-md-10.col-md-offset-1
+              h4.thin.mb0 #{o.organization}
+              h5.thin.mt0 #{o.content} (#{o.years})
+          .row.mb-xs-0
+            .col-md-10.col-md-offset-1
+              ul
+                li #{o.bullet_1}
+                li #{o.bullet_2}
+                li #{o.bullet_3}
+                
+      for o, i in cv
+        if o.section_name == 'school 2'
+          .row.mt40
+            .col-md-10.col-md-offset-1
+              h4.thin.mb0 #{o.organization}
+              h5.thin.mt0 #{o.content} (#{o.years})
+          .row.mb-xs-0
+            .col-md-10.col-md-offset-1
+              ul
+                li #{o.bullet_1}
+                li #{o.bullet_2}
+                li #{o.bullet_3}
+                
+      for o, i in cv
+        if o.section_name == 'school 1'
+          .row.mt40
+            .col-md-10.col-md-offset-1
+              h4.thin.mb0 #{o.organization}
+              h5.thin.mt0 #{o.content} (#{o.years})
+          .row.mb-xs-0
+            .col-md-10.col-md-offset-1
+              ul
+                li #{o.bullet_1}
+                li #{o.bullet_2}
+                li #{o.bullet_3}
+                
+  section.bg-secondary
+    .container
+      .row
+        .col-md-10.col-md-offset-1.mb40
+          h6.uppercase My Skills
+          hr.mb-xs-24
+          
+      .row.mb40
+        .col-md-10.col-md-offset-1
+          h4.uppercase Language Skills
+          .progress-bars
+            for l, i in languages
+              .progress.progress-1(style="opacity: .8")
+                .progress-bar(data-progress=l.level)
+                  span.title #{l.language}
+      
+      .row.mb40
+        .col-md-10.col-md-offset-1
+          h4.uppercase Other Skills
+          .progress-bars
+            for l, i in skills
+              if l.type == 'basic'
+                .progress.progress-1(style="opacity: .8")
+                  .progress-bar(data-progress=l.level)
+                    span.title #{l.skill}
+              
+      .row.mb40
+        .col-md-10.col-md-offset-1
+          .progress-bars
+            for l, i in skills
+              if l.type == 'language'
+                .progress.progress-1(style="opacity: .8")
+                  .progress-bar(data-progress=l.level)
+                    span.title #{l.skill}
+                    
+      .row.mb40
+        .col-md-10.col-md-offset-1
+          .progress-bars
+            for l, i in skills
+              if l.type == 'app'
+                .progress.progress-1(style="opacity: .8")
+                  .progress-bar(data-progress=l.level)
+                    span.title #{l.skill}

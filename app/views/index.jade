@@ -1,0 +1,101 @@
+extends layout
+
+-var page = 'Home'
+
+
+mixin imageItem(link, img, description, likes)
+  a(href=link)
+    .col-sm-4.mb30
+      img.background-image(alt=likes + ' Likes', src=img)
+
+mixin twitterItem(link, avatar, username, userscreen, tweet)  
+  .col-sm-4.twitter-item
+    p.tweet!=twitterText(tweet)
+
+mixin vimeoItem(id)
+  .col-md-6.col-sm-6.mb-xs-30.mb24
+    .embed-video-container.embed-responsive.embed-responsive-16by9
+      iframe.embed-responsive-item(src="http://player.vimeo.com/video/" + id + "?badge=0&title=0&byline=0&title=0")
+
+mixin imageElem(url)
+  li
+    a(href=url, data-lightbox="true")
+      .background-image-holder
+        img.background-image(alt="image", src=url)
+
+block content
+  section.image-bg.overlay.pt240.pb240.pt-xs-180.pb-xs-180
+    .background-image-holder
+      img.background-image(alt="image", src="img/header_img.jpg")
+    .container
+      .row
+        .col-sm-5.col-sm-offset-7
+          h1.mb0.uppercase.bold Krisztian Tabori
+          h5.uppercase.mb32 UI/UX Design &#38; Web Development
+
+  section.bg-secondary(style="padding-top:80px; padding-bottom: 30px;")
+    .container.text-center
+      .row
+        .col-md-12
+          .header(style="margin-bottom: 40px; height: 50px;")
+            .pull-left
+              h4
+                i.ti-twitter-alt.icon.icon-sm
+            .pull-left.ml10
+              h4 Twitter
+      .row
+        each e, i in data.twitterFeed
+          if i < 3
+            +twitterItem('http://twitter.com/' + e.user.screen_name, e.profile_image_url_https, e.user.name, e.user.screen_name, e.text)
+            
+  section.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
+    .container
+      .row
+        .col-md-12
+          .header(style="margin-bottom: 40px; height: 50px;")
+            .pull-left
+              h4
+                i.ti-camera.icon.icon-sm
+            .pull-left.ml10
+              h4 500px
+      .row
+        .col-sm-12
+          .lightbox-grid.square-thumbs(data-gallery-title="Gallery")
+            ul(style="margin-left: -8px; margin-right: -8px;")
+              each p, i in data.pxPhotos.photos 
+                +imageElem(p.image_url)
+
+  
+  section.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
+    .container.text-center
+      .row
+        .col-md-12
+          .header(style="margin-bottom: 40px; height: 50px;")
+            .pull-left
+              h4
+                i.ti-vimeo.icon.icon-sm
+            .pull-left.ml10
+              h4 Vimeo
+      .row
+        each v, i in data.vimeoAlbum.data
+          +vimeoItem(v.uri.split('/')[2])
+
+
+  section.bg-secondary.instagram(style="padding-top:30px; padding-bottom: 30px;")
+    .container.text-center
+      .row
+        .col-md-12
+          .header(style="margin-bottom: 40px; height: 50px;")
+            .pull-left
+              h4
+                i.ti-instagram.icon.icon-sm
+            .pull-left.ml10
+              h4 Instagram
+            .pull-right
+              h4 @KTABORI
+        .col-md-12
+          .instagram-grid
+            each e, i in data.instagramFeed.data
+              if i < 9
+                +imageItem(e.link, e.images.standard_resolution.url, e.caption, e.likes.count)
+  
