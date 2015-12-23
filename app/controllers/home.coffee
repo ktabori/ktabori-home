@@ -21,6 +21,7 @@ module.exports = (app) ->
             data = response.body
             data.pageTitle = 'Home'
             data.navigation = navres.body
+            console.log data.data.pxPhotos
             res.render 'index', data
 
   router.get '/cv', (req, res, next) ->

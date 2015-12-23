@@ -4,7 +4,7 @@ extends layout
 
 
 mixin imageItem(link, img, description, likes)
-  a(href=link)
+  a(href=link, target='blank')
     .col-sm-4.mb30
       img.background-image(alt=likes + ' Likes', src=img)
 
@@ -17,11 +17,10 @@ mixin vimeoItem(id)
     .embed-video-container.embed-responsive.embed-responsive-16by9
       iframe.embed-responsive-item(src="http://player.vimeo.com/video/" + id + "?badge=0&title=0&byline=0&title=0")
 
-mixin imageElem(url)
-  li
-    a(href=url, data-lightbox="true")
-      .background-image-holder
-        img.background-image(alt="image", src=url)
+mixin pxElem(url, link, title)
+  a(href=link, target='blank')
+    .col-sm-3.mb30
+      img.background-image(alt="500px image", src=url)
 
 block content
   section.image-bg.overlay.pt240.pb240.pt-xs-180.pb-xs-180
@@ -38,11 +37,12 @@ block content
       .row
         .col-md-12
           .header(style="margin-bottom: 40px; height: 50px;")
-            .pull-left
-              h4
-                i.ti-twitter-alt.icon.icon-sm
-            .pull-left.ml10
-              h4 Twitter
+            a(href="http://twitter.com/ktabori", target='blank')
+              .pull-left
+                h4
+                  i.ti-twitter-alt.icon.icon-sm
+              .pull-left.ml10
+                h4 Twitter
       .row
         each e, i in data.twitterFeed
           if i < 3
@@ -53,29 +53,29 @@ block content
       .row
         .col-md-12
           .header(style="margin-bottom: 40px; height: 50px;")
-            .pull-left
-              h4
-                i.ti-camera.icon.icon-sm
-            .pull-left.ml10
-              h4 500px
-      .row
-        .col-sm-12
-          .lightbox-grid.square-thumbs(data-gallery-title="Gallery")
-            ul(style="margin-left: -8px; margin-right: -8px;")
-              each p, i in data.pxPhotos.photos 
-                +imageElem(p.image_url)
+            a(href="https://500px.com/ktabori", target='blank')
+              .pull-left
+                h4
+                  i.ti-camera.icon.icon-sm
+              .pull-left.ml10
+                h4 500px
+        .col-md-12
+          .instagram-grid
+            each p, i in data.pxPhotos.photos
+              if i < 12
+                +pxElem(p.image_url, 'http://500px.com' + p.url)
 
-  
   section.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
     .container.text-center
       .row
         .col-md-12
           .header(style="margin-bottom: 40px; height: 50px;")
-            .pull-left
-              h4
-                i.ti-vimeo.icon.icon-sm
-            .pull-left.ml10
-              h4 Vimeo
+            a(href="https://vimeo.com/ktabori", target='blank')
+              .pull-left
+                h4
+                  i.ti-vimeo.icon.icon-sm
+              .pull-left.ml10
+                h4 Vimeo
       .row
         each v, i in data.vimeoAlbum.data
           +vimeoItem(v.uri.split('/')[2])
@@ -86,13 +86,14 @@ block content
       .row
         .col-md-12
           .header(style="margin-bottom: 40px; height: 50px;")
-            .pull-left
-              h4
-                i.ti-instagram.icon.icon-sm
-            .pull-left.ml10
-              h4 Instagram
-            .pull-right
-              h4 @KTABORI
+            a(href="https://instagram.com/ktabori", target='blank')
+              .pull-left
+                h4
+                  i.ti-instagram.icon.icon-sm
+              .pull-left.ml10
+                h4 Instagram
+              .pull-right
+                h4 @KTABORI
         .col-md-12
           .instagram-grid
             each e, i in data.instagramFeed.data

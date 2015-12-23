@@ -6,24 +6,24 @@ config =
   development:
     root: rootPath
     app:
-      name: 'bxxc'
+      name: 'ktabori'
     port: 3000
-    api: 'http://api.dmngd.co/bxxc/all'
+    api: 'http://cms.dmngd.co/'
 
 
   test:
     root: rootPath
     app:
-      name: 'bxxc'
+      name: 'ktabori'
     port: 3000
-    api: 'http://api.dmngd.co/bxxc/all'
+    api: 'http://cms.dmngd.co/'
 
 
   production:
     root: rootPath
     app:
-      name: 'bxxc'
+      name: 'ktabori'
     port: process.env.PORT || 3000
-    api: 'http://api.dmngd.co/bxxc/all'
+    api: 'http://cms.dmngd.co/'
 
 module.exports = config[env]
