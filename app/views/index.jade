@@ -22,6 +22,15 @@ mixin pxElem(url, link, title)
     .col-sm-3.mb30
       img.background-image(alt="500px image", src=url)
 
+mixin dribbbleItem(link, imgUrl, title, views_count, likes_count)
+  .col-md-6.col-sm-6.masonry-item.project(data-filter="People")
+    .image-tile.inner-title.hover-reveal.text-center
+      a(href=link)
+        img(alt="Pic", src=imgUrl)
+        .title
+          h5.uppercase.mb0= title
+          span= views_count + ' views / ' + likes_count + ' linkes'
+
 block content
   section.fullscreen.image-bg.parallax.background-multiply
     .background-image-holder
@@ -30,7 +39,7 @@ block content
       .row
         .col-md-8.col-sm-8.col-md-push-2.col-sm-push-2
           h1.thin.mb32 Krisztian Tabori
-          h5.uppercase.mb32 UI/UX Design &#38; Web Development
+          h5.uppercase.mb32 I'm a startup minded creative developer from Copenhagen. Partner + Lead UX at Dixa, previously at Danish Broadcasting Corporation.
     .align-bottom.text-center
       ul.list-inline.social-list.mb24
         li
@@ -70,7 +79,25 @@ block content
         each e, i in data.twitterFeed
           if i < 3
             +twitterItem('http://twitter.com/' + e.user.screen_name, e.profile_image_url_https, e.user.name, e.user.screen_name, e.text)
-            
+  
+  section.projects.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
+    .container
+      .row
+        .col-md-12
+          .header(style="margin-bottom: 40px; height: 50px;")
+            a(href="https://dribbble.com/ktabori", target='blank')
+              .pull-left
+                h4
+                  i.fa.fa-dribbble.icon.icon-m
+              .pull-left.ml10
+                h4 Dribbble
+              .pull-right
+                h4 
+      .row.masonry.masonryFlyIn
+        each d, i in data.dribbbleShots
+          if i < 3
+            +dribbbleItem(d.html_url, d.images.hidpi, d.title, d.views_count, d.likes_count)
+  
   section.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
     .container
       .row
