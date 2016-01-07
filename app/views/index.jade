@@ -23,14 +23,37 @@ mixin pxElem(url, link, title)
       img.background-image(alt="500px image", src=url)
 
 block content
-  section.image-bg.overlay.pt240.pb240.pt-xs-180.pb-xs-180
+  section.fullscreen.image-bg.parallax.background-multiply
     .background-image-holder
       img.background-image(alt="image", src="img/header_img.jpg")
-    .container
+    .container.v-align-transform.text-center
       .row
-        .col-sm-5.col-sm-offset-7
-          h1.mb0.uppercase.bold Krisztian Tabori
+        .col-md-8.col-sm-8.col-md-push-2.col-sm-push-2
+          h1.thin.mb32 Krisztian Tabori
           h5.uppercase.mb32 UI/UX Design &#38; Web Development
+    .align-bottom.text-center
+      ul.list-inline.social-list.mb24
+        li
+          a(href="https://twitter.com/ktabori")
+            i.fa.fa-twitter
+        li
+          a(href="https://www.facebook.com/krtabori")
+            i.fa.fa-facebook
+        li
+          a(href="https://dk.linkedin.com/in/ktabori")
+            i.fa.fa-linkedin
+        li
+          a(href="https://vimeo.com/ktabori")
+            i.fa.fa-vimeo
+        li
+          a(href="https://instagram.com/ktabori")
+            i.fa.fa-instagram
+        li
+          a(href="https://dribbble.com/ktabori")
+            i.fa.fa-dribbble
+        li
+          a(href="https://500px.com/ktabori")
+            i.fa.fa-500px
 
   section.bg-secondary(style="padding-top:80px; padding-bottom: 30px;")
     .container.text-center
