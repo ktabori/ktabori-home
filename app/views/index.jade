@@ -64,89 +64,93 @@ block content
           a(href="https://500px.com/ktabori")
             i.fa.fa-500px
 
-  section.bg-secondary(style="padding-top:80px; padding-bottom: 30px;")
-    .container.text-center
-      .row
-        .col-md-12
-          .header(style="margin-bottom: 40px; height: 50px;")
-            a(href="http://twitter.com/ktabori", target='blank')
-              .pull-left
-                h4
-                  i.ti-twitter-alt.icon.icon-sm
-              .pull-left.ml10
-                h4 Twitter
-      .row
-        each e, i in data.twitterFeed
-          if i < 3
-            +twitterItem('http://twitter.com/' + e.user.screen_name, e.profile_image_url_https, e.user.name, e.user.screen_name, e.text)
+  if data.twitterFeed
+    section.bg-secondary(style="padding-top:80px; padding-bottom: 30px;")
+      .container.text-center
+        .row
+          .col-md-12
+            .header(style="margin-bottom: 40px; height: 50px;")
+              a(href="http://twitter.com/ktabori", target='blank')
+                .pull-left
+                  h4
+                    i.ti-twitter-alt.icon.icon-sm
+                .pull-left.ml10
+                  h4 Twitter
+        .row
+          each e, i in data.twitterFeed
+            if i < 3
+              +twitterItem('http://twitter.com/' + e.user.screen_name, e.profile_image_url_https, e.user.name, e.user.screen_name, e.text)
   
-  section.projects.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
-    .container
-      .row
-        .col-md-12
-          .header(style="margin-bottom: 40px; height: 50px;")
-            a(href="https://dribbble.com/ktabori", target='blank')
-              .pull-left
-                h4
-                  i.fa.fa-dribbble.icon.icon-m
-              .pull-left.ml10
-                h4 Dribbble
-              .pull-right
-                h4 
-      .row.masonry.masonryFlyIn
-        each d, i in data.dribbbleShots
-          if i < 3
-            +dribbbleItem(d.html_url, d.images.hidpi, d.title, d.views_count, d.likes_count)
+  if data.dribbbleShots
+    section.projects.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
+      .container
+        .row
+          .col-md-12
+            .header(style="margin-bottom: 40px; height: 50px;")
+              a(href="https://dribbble.com/ktabori", target='blank')
+                .pull-left
+                  h4
+                    i.fa.fa-dribbble.icon.icon-m
+                .pull-left.ml10
+                  h4 Dribbble
+                .pull-right
+                  h4 
+        .row.masonry.masonryFlyIn
+          each d, i in data.dribbbleShots
+            if i < 9
+              +dribbbleItem(d.html_url, d.images.hidpi, d.title, d.views_count, d.likes_count)
   
-  section.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
-    .container
-      .row
-        .col-md-12
-          .header(style="margin-bottom: 40px; height: 50px;")
-            a(href="https://500px.com/ktabori", target='blank')
-              .pull-left
-                h4
-                  i.ti-camera.icon.icon-sm
-              .pull-left.ml10
-                h4 500px
-        .col-md-12
-          .instagram-grid
-            each p, i in data.pxPhotos.photos
-              if i < 12
-                +pxElem(p.image_url, 'http://500px.com' + p.url)
+  if data.pxPhotos.photos
+    section.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
+      .container
+        .row
+          .col-md-12
+            .header(style="margin-bottom: 40px; height: 50px;")
+              a(href="https://500px.com/ktabori", target='blank')
+                .pull-left
+                  h4
+                    i.ti-camera.icon.icon-sm
+                .pull-left.ml10
+                  h4 500px
+          .col-md-12
+            .instagram-grid
+              each p, i in data.pxPhotos.photos
+                if i < 12
+                  +pxElem(p.image_url, 'http://500px.com' + p.url)
 
-  section.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
-    .container.text-center
-      .row
-        .col-md-12
-          .header(style="margin-bottom: 40px; height: 50px;")
-            a(href="https://vimeo.com/ktabori", target='blank')
-              .pull-left
-                h4
-                  i.ti-vimeo.icon.icon-sm
-              .pull-left.ml10
-                h4 Vimeo
-      .row
-        each v, i in data.vimeoAlbum.data
-          +vimeoItem(v.uri.split('/')[2])
+  if data.vimeoAlbum.data
+    section.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
+      .container.text-center
+        .row
+          .col-md-12
+            .header(style="margin-bottom: 40px; height: 50px;")
+              a(href="https://vimeo.com/ktabori", target='blank')
+                .pull-left
+                  h4
+                    i.ti-vimeo.icon.icon-sm
+                .pull-left.ml10
+                  h4 Vimeo
+        .row
+          each v, i in data.vimeoAlbum.data
+            +vimeoItem(v.uri.split('/')[2])
 
-
-  section.bg-secondary.instagram(style="padding-top:30px; padding-bottom: 30px;")
-    .container.text-center
-      .row
-        .col-md-12
-          .header(style="margin-bottom: 40px; height: 50px;")
-            a(href="https://instagram.com/ktabori", target='blank')
-              .pull-left
-                h4
-                  i.ti-instagram.icon.icon-sm
-              .pull-left.ml10
-                h4 Instagram
-              .pull-right
-                h4 @KTABORI
-        .col-md-12
-          .instagram-grid
-            each e, i in data.instagramFeed.data
-              if i < 9
-                +imageItem(e.link, e.images.standard_resolution.url, e.caption, e.likes.count)
+  if data.instagramFeed.data
+    section.bg-secondary.instagram(style="padding-top:30px; padding-bottom: 30px;")
+      .container.text-center
+        .row
+          .col-md-12
+            .header(style="margin-bottom: 40px; height: 50px;")
+              a(href="https://instagram.com/ktabori", target='blank')
+                .pull-left
+                  h4
+                    i.ti-instagram.icon.icon-sm
+                .pull-left.ml10
+                  h4 Instagram
+                .pull-right
+                  h4 @KTABORI
+          .col-md-12
+            .instagram-grid
+              each e, i in data.instagramFeed.data
+                if i < 9
+                  +imageItem(e.link, e.images.standard_resolution.url, e.caption, e.likes.count)
   
