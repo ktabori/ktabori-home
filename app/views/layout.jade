@@ -26,7 +26,7 @@ html(lang='en')
               ul.menu
                 each n in navigation
                   li
-                    a(href=n.url)= n.title
+                    a(href=n.fields.URL)= n.fields.Title
 
     .main-container
       block content

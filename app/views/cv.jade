@@ -46,23 +46,23 @@ block content
           hr.visible-xs
         .col-md-5.col-sm-7
           for o, i in cv
-            if o.section_name == 'intro 1'
-              p #{o.content}
+            if o.fields.section_name == 'intro 1'
+              p #{o.fields.Content}
           for o, i in cv
-            if o.section_name == 'intro 2'
-              p #{o.content}
+            if o.fields.section_name == 'intro 2'
+              p #{o.fields.Content}
           for o, i in cv
-            if o.section_name == 'intro 3'
-              p #{o.content}
+            if o.fields.section_name == 'intro 3'
+              p #{o.fields.Content}
           for o, i in cv
-            if o.section_name == 'intro 4'
-              p #{o.content}
+            if o.fields.section_name == 'intro 4'
+              p #{o.fields.Content}
           for o, i in cv
-            if o.section_name == 'intro 5'
-              p #{o.content}
+            if o.fields.section_name == 'intro 5'
+              p #{o.fields.Content}
           for o, i in cv
-            if o.section_name == 'intro 6'
-              p #{o.content}
+            if o.fields.section_name == 'intro 6'
+              p #{o.fields.Content}
   
   section.bg-secondary
     .container
@@ -72,43 +72,43 @@ block content
           hr.mb-xs-24
       
       for o, i in cv
-        if o.section_name == 'xp 3'
+        if o.fields.section_name == 'xp 3'
           .row
             .col-md-10.col-md-offset-1
-              h4.thin.mb0 #{o.organization}
-              h5.thin.mt0 #{o.content} (#{o.years})
+              h4.thin.mb0 #{o.fields.Organization}
+              h5.thin.mt0 #{o.fields.Content} (#{o.fields.Years})
           .row.mb-xs-0
             .col-md-10.col-md-offset-1
               ul
-                li #{o.bullet_1}
-                li #{o.bullet_2}
-                li #{o.bullet_3}
+                li #{o.fields.Bullet1}
+                li #{o.fields.Bullet2}
+                li #{o.fields.Bullet3}
       
       for o, i in cv
-        if o.section_name == 'xp 2'
-          .row.mt40
+        if o.fields.section_name == 'xp 2'
+          .row
             .col-md-10.col-md-offset-1
-              h4.thin.mb0 #{o.organization}
-              h5.thin.mt0 #{o.content} (#{o.years})
+              h4.thin.mb0 #{o.fields.Organization}
+              h5.thin.mt0 #{o.fields.Content} (#{o.fields.Years})
           .row.mb-xs-0
             .col-md-10.col-md-offset-1
               ul
-                li #{o.bullet_1}
-                li #{o.bullet_2}
-                li #{o.bullet_3}
+                li #{o.fields.Bullet1}
+                li #{o.fields.Bullet2}
+                li #{o.fields.Bullet3}
       
       for o, i in cv
-        if o.section_name == 'xp 1'
-          .row.mt40
+        if o.fields.section_name == 'xp 1'
+          .row
             .col-md-10.col-md-offset-1
-              h4.thin.mb0 #{o.organization}
-              h5.thin.mt0 #{o.content} (#{o.years})
+              h4.thin.mb0 #{o.fields.Organization}
+              h5.thin.mt0 #{o.fields.Content} (#{o.fields.Years})
           .row.mb-xs-0
             .col-md-10.col-md-offset-1
               ul
-                li #{o.bullet_1}
-                li #{o.bullet_2}
-                li #{o.bullet_3}
+                li #{o.fields.Bullet1}
+                li #{o.fields.Bullet2}
+                li #{o.fields.Bullet3}
 
   section.bg-secondary
     .container
@@ -118,69 +118,69 @@ block content
           hr.mb-xs-24
       
       for o, i in cv
-        if o.section_name == 'school 5'
+        if o.fields.section_name == 'school 5'
           .row
             .col-md-10.col-md-offset-1
-              h4.thin.mb0 #{o.organization}
-              h5.thin.mt0 #{o.content} (#{o.years})
+              h4.thin.mb0 #{o.fields.Organization}
+              h5.thin.mt0 #{o.fields.Content} (#{o.fields.Years})
           .row.mb-xs-0
             .col-md-10.col-md-offset-1
               ul
-                li #{o.bullet_1}
-                li #{o.bullet_2}
-                li #{o.bullet_3}
+                li #{o.fields.Bullet1}
+                li #{o.fields.Bullet2}
+                li #{o.fields.Bullet3}
       
       for o, i in cv
-        if o.section_name == 'school 4'
-          .row.mt40
+        if o.fields.section_name == 'school 4'
+          .row
             .col-md-10.col-md-offset-1
-              h4.thin.mb0 #{o.organization}
-              h5.thin.mt0 #{o.content} (#{o.years})
+              h4.thin.mb0 #{o.fields.Organization}
+              h5.thin.mt0 #{o.fields.Content} (#{o.fields.Years})
           .row.mb-xs-0
             .col-md-10.col-md-offset-1
               ul
-                li #{o.bullet_1}
-                li #{o.bullet_2}
-                li #{o.bullet_3}
+                li #{o.fields.Bullet1}
+                li #{o.fields.Bullet2}
+                li #{o.fields.Bullet3}
       
       for o, i in cv
-        if o.section_name == 'school 3'
-          .row.mt40
+        if o.fields.section_name == 'school 3'
+          .row
             .col-md-10.col-md-offset-1
-              h4.thin.mb0 #{o.organization}
-              h5.thin.mt0 #{o.content} (#{o.years})
+              h4.thin.mb0 #{o.fields.Organization}
+              h5.thin.mt0 #{o.fields.Content} (#{o.fields.Years})
           .row.mb-xs-0
             .col-md-10.col-md-offset-1
               ul
-                li #{o.bullet_1}
-                li #{o.bullet_2}
-                li #{o.bullet_3}
+                li #{o.fields.Bullet1}
+                li #{o.fields.Bullet2}
+                li #{o.fields.Bullet3}
                 
       for o, i in cv
-        if o.section_name == 'school 2'
-          .row.mt40
+        if o.fields.section_name == 'school 2'
+          .row
             .col-md-10.col-md-offset-1
-              h4.thin.mb0 #{o.organization}
-              h5.thin.mt0 #{o.content} (#{o.years})
+              h4.thin.mb0 #{o.fields.Organization}
+              h5.thin.mt0 #{o.fields.Content} (#{o.fields.Years})
           .row.mb-xs-0
             .col-md-10.col-md-offset-1
               ul
-                li #{o.bullet_1}
-                li #{o.bullet_2}
-                li #{o.bullet_3}
+                li #{o.fields.Bullet1}
+                li #{o.fields.Bullet2}
+                li #{o.fields.Bullet3}
                 
       for o, i in cv
-        if o.section_name == 'school 1'
-          .row.mt40
+        if o.fields.section_name == 'school 1'
+          .row
             .col-md-10.col-md-offset-1
-              h4.thin.mb0 #{o.organization}
-              h5.thin.mt0 #{o.content} (#{o.years})
+              h4.thin.mb0 #{o.fields.Organization}
+              h5.thin.mt0 #{o.fields.Content} (#{o.fields.Years})
           .row.mb-xs-0
             .col-md-10.col-md-offset-1
               ul
-                li #{o.bullet_1}
-                li #{o.bullet_2}
-                li #{o.bullet_3}
+                li #{o.fields.Bullet1}
+                li #{o.fields.Bullet2}
+                li #{o.fields.Bullet3}
                 
   section.bg-secondary
     .container
@@ -195,33 +195,33 @@ block content
           .progress-bars
             for l, i in languages
               .progress.progress-1(style="opacity: .8")
-                .progress-bar(data-progress=l.level)
-                  span.title #{l.language}
+                .progress-bar(data-progress=l.fields.Level)
+                  span.title #{l.fields.Language}
       
       .row.mb40
         .col-md-10.col-md-offset-1
           h4.uppercase Other Skills
           .progress-bars
             for l, i in skills
-              if l.type == 'basic'
+              if l.fields.Type == 'basic'
                 .progress.progress-1(style="opacity: .8")
-                  .progress-bar(data-progress=l.level)
-                    span.title #{l.skill}
+                  .progress-bar(data-progress=l.fields.Level)
+                    span.title #{l.fields.Skill}
               
       .row.mb40
         .col-md-10.col-md-offset-1
           .progress-bars
             for l, i in skills
-              if l.type == 'language'
+              if l.fields.Type == 'language'
                 .progress.progress-1(style="opacity: .8")
-                  .progress-bar(data-progress=l.level)
-                    span.title #{l.skill}
+                  .progress-bar(data-progress=l.fields.Level)
+                    span.title #{l.fields.Skill}
                     
       .row.mb40
         .col-md-10.col-md-offset-1
           .progress-bars
             for l, i in skills
-              if l.type == 'app'
+              if l.fields.Type == 'app'
                 .progress.progress-1(style="opacity: .8")
-                  .progress-bar(data-progress=l.level)
-                    span.title #{l.skill}
+                  .progress-bar(data-progress=l.fields.Level)
+                    span.title #{l.fields.Skill}
