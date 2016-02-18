@@ -64,7 +64,7 @@ block content
           a(href="https://500px.com/ktabori")
             i.fa.fa-500px
 
-  if data.twitterFeed
+  if Data.twitterFeed
     section.bg-secondary(style="padding-top:80px; padding-bottom: 30px;")
       .container.text-center
         .row
@@ -77,11 +77,11 @@ block content
                 .pull-left.ml10
                   h4 Twitter
         .row
-          each e, i in data.twitterFeed
+          each e, i in Data.twitterFeed
             if i < 3
               +twitterItem('http://twitter.com/' + e.user.screen_name, e.profile_image_url_https, e.user.name, e.user.screen_name, e.text)
   
-  if data.dribbbleShots
+  if Data.dribbbleShots
     section.projects.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
       .container
         .row
@@ -96,11 +96,11 @@ block content
                 .pull-right
                   h4 
         .row.masonry.masonryFlyIn
-          each d, i in data.dribbbleShots
+          each d, i in Data.dribbbleShots
             if i < 9
               +dribbbleItem(d.html_url, d.images.hidpi, d.title, d.views_count, d.likes_count)
   
-  if data.pxPhotos.photos
+  if Data.pxPhotos.photos
     section.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
       .container
         .row
@@ -114,11 +114,11 @@ block content
                   h4 500px
           .col-md-12
             .instagram-grid
-              each p, i in data.pxPhotos.photos
+              each p, i in Data.pxPhotos.photos
                 if i < 12
                   +pxElem(p.image_url, 'http://500px.com' + p.url)
 
-  if data.vimeoAlbum.data
+  if Data.vimeoAlbum.data
     section.bg-secondary(style="padding-top:30px; padding-bottom: 30px;")
       .container.text-center
         .row
@@ -131,10 +131,10 @@ block content
                 .pull-left.ml10
                   h4 Vimeo
         .row
-          each v, i in data.vimeoAlbum.data
+          each v, i in Data.vimeoAlbum.data
             +vimeoItem(v.uri.split('/')[2])
 
-  if data.instagramFeed.data
+  if Data.instagramFeed.data
     section.bg-secondary.instagram(style="padding-top:30px; padding-bottom: 30px;")
       .container.text-center
         .row
@@ -150,7 +150,7 @@ block content
                   h4 @KTABORI
           .col-md-12
             .instagram-grid
-              each e, i in data.instagramFeed.data
+              each e, i in Data.instagramFeed.data
                 if i < 9
                   +imageItem(e.link, e.images.standard_resolution.url, e.caption, e.likes.count)
   
