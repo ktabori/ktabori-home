@@ -19,6 +19,7 @@ module.exports = (app) ->
 
         unirest.get api
           .end (response) ->
+            data = {}
             data = response.body
             data.pageTitle = 'Home'
             data.navigation = navres.body.records
